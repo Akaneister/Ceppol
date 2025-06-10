@@ -1,0 +1,454 @@
+/* Navbar.css - Professional and Aesthetic Navigation Bar for Application */
+
+/* ========== CSS VARIABLES ========== */
+:root {
+  /* Primary color palette */
+  --primary-color: #00205B;      /* Bleu marine officiel Marine nationale */
+  --primary-light: #254080;      /* Bleu plus clair pour hover, nuance */
+  --primary-dark: #00153a;       /* Bleu nuit profond */
+
+  /* Accent color (rouge pour hover/active) */
+  --accent-color: #860707;       /* Rouge principal pour hover/active */
+  --accent-hover: #86070785;     /* Rouge transparent pour hover */
+
+  /* Supporting colors */
+  --secondary-color: #5dade2;    /* Bleu clair (à ajuster si besoin) */
+  --light-color: #eaf6fb;
+  --dark-color: #0a2239;
+  --background-color: #f4faff;
+
+  /* Effects */
+  --shadow-color: rgba(0, 32, 91, 0.15); /* Ombre bleu marine officiel */
+  --hover-bg: rgba(0, 32, 91, 0.08);     /* Hover bleu marine (pour boutons secondaires) */
+  --transition-speed: 0.25s;
+  --border-radius: 8px;
+  --navbar-height: 70px;
+  --navbar-height-scrolled: 60px;
+}
+
+/* Police officielle Marine nationale */
+body, .navbar, .navbar-logo h1, .navbar-links li a, .login-button, .logout-button, .user-name, .user-info, .user-avatar {
+  font-family: 'DIN', Arial, sans-serif;
+}
+
+/* ========== GLOBAL ADJUSTMENTS POUR ÉVITER SCROLL HORIZONTAL ========== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* Empêche le défilement horizontal pour tout le site */
+}
+
+/* ========== NAVBAR CONTAINER ========== */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%; /* Largeur de 100% pour s'adapter à la taille de l'écran */
+  max-width: 100vw; /* S'assure que la navbar ne dépasse jamais la largeur de la fenêtre */
+  height: var(--navbar-height);
+  background-color: var(--background-color);
+  z-index: 1000;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  overflow-x: hidden; /* Empêche le défilement horizontal à l'intérieur de la navbar */
+  background-color: #00153a;
+}
+
+/* Scrolled state - more compact and prominent */
+.navbar-container.scrolled {
+  height: var(--navbar-height-scrolled);
+  background-color: var(--background-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+/* Main navbar component */
+.navbar {
+  max-width: 1200px;
+  width: 100%; /* Assure que la navbar prend toute la largeur disponible */
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box; /* Inclut padding dans la largeur totale */
+}
+
+/* ========== LOGO SECTION ========== */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0; /* Empêche le logo de rétrécir en mode mobile */
+}
+
+.navbar-logo .logo-circle {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-dark)) !important;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px var(--shadow-color);
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .logo-circle {
+  transform: scale(1.05);
+}
+
+.navbar-logo h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* ========== NAVIGATION MENU ========== */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 48px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+.navbar-links li a, 
+.login-button,
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed);
+}
+
+/* Hover states */
+.navbar-links li a:hover, 
+.login-button:hover,
+.logout-button:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff ;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 50px var(--shadow-color);
+}
+
+/* Active link indication */
+.navbar-links li.active a,
+.login-button.active {
+  color: #ffffff ;
+  font-weight: 600;
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Icons within links */
+.link-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== AUTHENTICATION SECTION ========== */
+.navbar-auth {
+  display: flex;
+  align-items: center;
+}
+
+.login-button {
+  background-color: var(--hover-bg);
+  color: var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.login-button:active {
+  transform: scale(0.97);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-dark));
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+  transform: scale(1.05);
+}
+
+.user-name {
+  font-weight: 500;
+  display: block;
+  color: #fff !important; /* Force le blanc même si une autre règle CSS s'applique */
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: white);
+  transition: all var(--transition-speed);
+}
+
+/* ========== MOBILE MENU TOGGLE ========== */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+  flex-shrink: 0; /* Empêche le bouton de rétrécir en mode mobile */
+}
+
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger to X animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .navbar {
+    max-width: 960px;
+  }
+}
+
+@media (max-width:1200px){
+  .link-text {
+    font-size: 0.8rem;
+  }
+  .user-name {
+    font-size: 0.8rem;
+  }
+  .user-info {
+    display: none;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .link-text {
+    font-size: 0.8rem;
+  }
+  .user-name {
+    font-size: 0.8rem;
+  }
+
+  .navbar {
+    max-width: 720px;
+  }
+  
+  .navbar-logo h1 {
+    font-size: 18px;
+  }
+  
+  .navbar-menu {
+    margin-left: 24px;
+  }
+  
+  .navbar-links li a, 
+  .login-button {
+    padding: 8px 12px;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .navbar-container {
+    height: 60px;
+    width: 100vw; /* Utilise la largeur complète de la fenêtre */
+  }
+  
+  .navbar-container.scrolled {
+    height: 55px;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  /* Mobile menu panel */
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 80px 24px 32px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    margin-left: 0;
+    z-index: 99;
+    overflow-y: auto;
+    overflow-x: hidden; /* Empêche le défilement horizontal du menu mobile */
+  }
+  
+  .navbar-menu.mobile-open {
+    right: 0;
+  }
+  
+  /* Vertical menu on mobile */
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .navbar-links li a {
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box; /* S'assure que le padding est inclus dans la largeur */
+  }
+  
+  .navbar-auth {
+    margin-top: 32px;
+    width: 100%;
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .user-info {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: var(--border-radius);
+    box-sizing: border-box; /* S'assure que le padding est inclus dans la largeur */
+  }
+  
+  .logout-button {
+    margin-top: 16px;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    box-sizing: border-box; /* S'assure que le padding est inclus dans la largeur */
+  }
+  
+  .login-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    margin-top: 16px;
+    box-sizing: border-box; /* S'assure que le padding est inclus dans la largeur */
+  }
+  
+  /* Overlay pour le menu mobile */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+  }
+  
+  .menu-overlay.active {
+    display: block;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navbar {
+    padding: 0 16px;
+    width: 100%; /* Assure que la navbar prend toute la largeur disponible */
+    justify-content: space-between; /* Plutôt que center pour mieux gérer les éléments */
+  }
+  
+  .navbar-logo .logo-circle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .navbar-logo h1 {
+    font-size: 16px;
+  }
+  
+  /* Hide username on very small screens */
+  .user-name {
+    display: none;
+  }
+  
+  /* Repositionner le logo pour qu'il soit visible mais n'interfère pas avec le menu */
+  .navbar-logo {
+    position: relative; /* Au lieu de absolute */
+    left: auto; /* Au lieu de 50% */
+    transform: none; /* Au lieu de translateX(-50%) */
+  }
+  
+  .mobile-menu-toggle {
+    position: relative; /* Au lieu de absolute */
+    right: auto; /* Au lieu de 16px */
+  }
+
+    .navbar-menu {
+    background-color: var(--primary-dark);
+  }
+}

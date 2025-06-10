@@ -1,0 +1,26 @@
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-carte {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.carte-header {
+  flex: 0 0 auto;
+  /* Ajuste la hauteur selon ton menu si besoin */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-container {
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  border: 2px solid #ccc;
+}
