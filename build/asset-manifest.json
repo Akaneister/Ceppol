@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Ceppol/static/css/main.c235f8b7.css",
+    "main.js": "/Ceppol/static/js/main.215637e1.js",
+    "static/js/453.8ab44547.chunk.js": "/Ceppol/static/js/453.8ab44547.chunk.js",
+    "index.html": "/Ceppol/index.html",
+    "main.c235f8b7.css.map": "/Ceppol/static/css/main.c235f8b7.css.map",
+    "main.215637e1.js.map": "/Ceppol/static/js/main.215637e1.js.map",
+    "453.8ab44547.chunk.js.map": "/Ceppol/static/js/453.8ab44547.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c235f8b7.css",
+    "static/js/main.215637e1.js"
+  ]
+}
